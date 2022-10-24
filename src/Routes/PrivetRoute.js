@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Routes = () => {
+const PrivetRoute = () => {
     return (
         <div>
-
+            privet
         </div>
     );
 };
 
-export default Routes;
+export default PrivetRoute;

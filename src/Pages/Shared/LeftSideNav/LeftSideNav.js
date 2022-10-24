@@ -1,11 +1,11 @@
 import React from 'react';
 
-const LeftSodeNav = () => {
+const LeftSideNav = () => {
     return (
         <div>
-
+            <h1>left</h1>
         </div>
     );
 };
 
-export default LeftSodeNav;
+export default LeftSideNav;
