@@ -5,7 +5,8 @@ const Header = () => {
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <Link className="btn btn-ghost normal-case text-xl">Sprots and Traning</Link>
+                <img src={`../../../assets/logo-removebg-preview (1).png`} alt="" />
+                <Link className="btn btn-ghost normal-case text-xl">Sports and Traning</Link>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
@@ -20,7 +21,7 @@ const Header = () => {
                             <li><Link>Submenu 2</Link></li>
                         </ul>
                     </li>
-                    <li><Link>Item 3</Link></li>
+                    <li><Link to='/blogs'>Blogs</Link></li>
                 </ul>
             </div>
         </div>
