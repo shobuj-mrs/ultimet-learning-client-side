@@ -37,7 +37,7 @@ const Header = () => {
                                     Home
                                 </Link>
                                 <Link
-                                    to='/course'
+                                   to='/allCourse'
                                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                                 >
                                     Course

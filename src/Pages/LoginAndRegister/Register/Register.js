@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Context/UserContext';
 const Register = () => {
 
     const [error, setError] = useState('');
-    const { createUser, updateUserProfile, loginProvider } = useContext(AuthContext);
+    const { createUser, updateUserProfile, loginProvider, githubLogin } = useContext(AuthContext);
 
     //  google sign in method
     const googleProvider = new GoogleAuthProvider();
@@ -18,6 +18,21 @@ const Register = () => {
                 console.log(user);
             })
             .catch(error => console.error(error))
+    }
+
+    // gitHub sign in method
+
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGithubLogin = () => {
+        githubLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
 
@@ -60,16 +75,16 @@ const Register = () => {
 
 
     return (
-        <div>
-            <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
+        <div className=' mb-12 bg-slate-100'>
+            <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
                 <div>
-                    <Link href="/">
+                    <Link to='/'>
                         <h3 className="text-4xl font-bold mt-6 text-purple-600">
                             Registration Form
                         </h3>
                     </Link>
                 </div>
-                <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
+                <div className="w-full px-6 py-4 mt-6 overflow-hidden  shadow-2xl sm:max-w-lg sm:rounded-lg">
 
                     {/* form part start */}
 
@@ -85,7 +100,7 @@ const Register = () => {
                                 <input
                                     type="text"
                                     name="name"
-                                    className="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                    className="block w-full mt-1 border-gray-500 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 />
                             </div>
                         </div>
@@ -197,6 +212,7 @@ const Register = () => {
                             <p>Login with Google</p>
                         </button>
                         <button
+                            onClick={handleGithubLogin}
                             aria-label="Login with GitHub"
                             type="button"
                             className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
