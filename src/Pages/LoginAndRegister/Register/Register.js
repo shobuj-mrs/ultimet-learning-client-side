@@ -1,13 +1,27 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
 
 const Register = () => {
+
     const [error, setError] = useState('');
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, loginProvider } = useContext(AuthContext);
 
-    // const navigate = useNavigate();
+    //  google sign in method
+    const googleProvider = new GoogleAuthProvider();
 
+    const handleGoogleSignIn = () => {
+        loginProvider(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
+
+    // email registration  sign in method
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -135,6 +149,8 @@ const Register = () => {
                             </button>
                         </div>
                     </form>
+
+
                     <div className="mt-4 text-grey-600">
                         Already have an account?{" "}
                         <span>
@@ -150,6 +166,7 @@ const Register = () => {
                     </div>
                     <div className="my-6 space-y-2">
                         <button
+                            onClick={handleGoogleSignIn}
                             aria-label="Login with Google"
                             type="button"
                             className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"

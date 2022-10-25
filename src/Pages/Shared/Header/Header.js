@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Transition } from "@headlessui/react";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/UserContext';
+import { FaUser, } from 'react-icons/fa';
 
 const Header = () => {
 
-    const [isOpen, setOpen] = useState(false)
+    const [isOpen, setOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     return (
-        <nav className="bg-gray-800">
+        <nav className="bg-pink-400">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center justify-around">
@@ -46,7 +55,7 @@ const Header = () => {
                                 >
                                     FAQ
                                 </Link>
-                                <Link
+                                {/* <Link
                                     to='/login'
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                 >
@@ -58,7 +67,51 @@ const Header = () => {
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                 >
                                     Sign Up
-                                </Link>
+                                </Link> */}
+
+
+                                {
+                                    user?.uid ?
+                                        <>
+                                            <span
+                                                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                            >
+                                                {user?.displayName}
+                                            </span>
+                                            <button
+                                                onClick={handleLogout}
+                                                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                            >
+                                                Log Out
+                                            </button>
+                                        </>
+                                        :
+                                        <>
+                                            <Link
+                                                className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium '
+                                                to='/login'
+                                            >
+                                                Login
+                                            </Link>
+                                            <Link
+                                                className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium '
+                                                to='/signup'
+                                            >
+                                                Sign Up
+                                            </Link>
+                                        </>
+                                }
+
+                                {user?.photoURL ?
+                                    <img
+                                        src={user?.photoURL}
+                                        className='text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium '
+                                        style={{ height: '30px' }}
+                                    />
+                                    :
+                                    <FaUser></FaUser>
+                                }
+
 
                             </div>
 
