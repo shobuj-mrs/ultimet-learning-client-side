@@ -1,8 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Context/UserContext';
 
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+    const handleLogIn = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('')
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
+    }
 
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -10,7 +40,11 @@ const Login = () => {
                 <h1 className="text-4xl font-bold text-center text-purple-700 uppercase">
                     Login
                 </h1>
-                <form className="mt-6">
+
+                <form
+                    onSubmit={handleLogIn}
+                    className="mt-6"
+                >
                     <div className="mb-2">
                         <label
                             htmlFor="email"
@@ -25,6 +59,7 @@ const Login = () => {
                             required
                         />
                     </div>
+
                     <div className="mb-2">
                         <label
                             htmlFor="password"
@@ -34,9 +69,13 @@ const Login = () => {
                         </label>
                         <input
                             type="password"
+                            name='password'
                             className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
+
+                    <p>{error} </p>
+
                     <Link
                         href="#"
                         className="text-xs text-purple-600 hover:underline"

@@ -1,7 +1,49 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/UserContext';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+
+    // const navigate = useNavigate();
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirm = form.confirm.value;
+        console.log(name, email, password, confirm);
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('')
+                handleUpdateUserProfile(name,);
+                // navigate('/')
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message)
+            })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL,
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
+
+
     return (
         <div>
             <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
@@ -13,7 +55,10 @@ const Register = () => {
                     </Link>
                 </div>
                 <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
-                    <form>
+
+                    {/* form part start */}
+
+                    <form onSubmit={handleSubmit}>
                         <div>
                             <label
                                 htmlFor="name"
@@ -63,7 +108,7 @@ const Register = () => {
                         </div>
                         <div className="mt-4">
                             <label
-                                htmlFor="password_confirmation"
+                                htmlFor="confirm"
                                 className="block font-medium text-gray-700 undefined"
                             >
                                 Confirm Password
@@ -71,11 +116,12 @@ const Register = () => {
                             <div className="flex flex-col items-start">
                                 <input
                                     type="password"
-                                    name="password_confirmation"
+                                    name="confirm"
                                     className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                     required
                                 />
                             </div>
+                            <p>{error}</p>
                         </div>
                         <Link
                             href="#"
