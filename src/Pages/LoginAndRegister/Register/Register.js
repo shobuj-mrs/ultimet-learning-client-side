@@ -26,10 +26,11 @@ const Register = () => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-        console.log(name, email, password, confirm);
+        console.log(name, photoURL, email, password, confirm);
 
         createUser(email, password)
             .then(result => {
@@ -63,7 +64,7 @@ const Register = () => {
             <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
                 <div>
                     <Link href="/">
-                        <h3 className="text-4xl font-bold text-purple-600">
+                        <h3 className="text-4xl font-bold mt-6 text-purple-600">
                             Registration Form
                         </h3>
                     </Link>
@@ -84,6 +85,21 @@ const Register = () => {
                                 <input
                                     type="text"
                                     name="name"
+                                    className="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="photoURL"
+                                className="block font-medium text-gray-700 undefined"
+                            >
+                                photoURL
+                            </label>
+                            <div className="flex flex-col items-start">
+                                <input
+                                    type="text"
+                                    name="photoURL"
                                     className="block w-full mt-1 border-gray-400 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 />
                             </div>
