@@ -1,13 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blogs from "../Pages/Blog/Blogs";
+import CheckOut from "../Pages/CheackOut/CheckOut";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/LoginAndRegister/Login/Login";
 import Register from "../Pages/LoginAndRegister/Register/Register";
+import AboutUs from "../Pages/Shared/AboutUs/AboutUs";
 import Course from "../Pages/Shared/Course/Course"
 import DetailCourse from "../Pages/Shared/Course/DetailCourse/DetailCourse";
 import Faq from "../Pages/Shared/Faq/Faq";
+import PrivetRoute from "./PrivetRoute";
 
 
 
@@ -26,7 +29,7 @@ export const router = createBrowserRouter([
                 loader: () => {
                     return fetch(`https://assignment-10-the-ultimate-learning-server-side.vercel.app/courses`)
                 },
-                element: <Course></Course>
+                element: <PrivetRoute><Course></Course></PrivetRoute>
             },
             {
                 path: '/login',
@@ -47,6 +50,15 @@ export const router = createBrowserRouter([
             {
                 path: '/courseDetails',
                 element: <DetailCourse></DetailCourse>
+            },
+            {
+                path: '/about',
+                element: <AboutUs></AboutUs>
+            },
+            {
+                path: '/courses/:id',
+                loader: ({ params }) => fetch(`https://assignment-10-the-ultimate-learning-server-side.vercel.app/courses/${params.id}`),
+                element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>
             }
         ]
     }

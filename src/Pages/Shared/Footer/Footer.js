@@ -6,21 +6,11 @@ const Footer = () => {
         <footer className="footer footer-center p-10 dark:bg-gray-200 text-base-content rounded">
             <div className="grid grid-flow-col gap-4">
                 <Link
+                    to={'/about'}
                     className="link link-hover">
                     About us
                 </Link>
-                <Link
-                    className="link link-hover">
-                    Contact
-                </Link>
-                <Link
-                    className="link link-hover">
-                    Jobs
-                </Link>
-                <Link
-                    className="link link-hover">
-                    Press kit
-                </Link>
+
             </div>
             <div>
                 <div className="grid grid-flow-col gap-4">
@@ -33,7 +23,7 @@ const Footer = () => {
                 </div>
             </div>
             <div>
-                <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+                <p>Copyright © 2022 - All right reserved by Learner & Trainer service.</p>
             </div>
         </footer>
     );
