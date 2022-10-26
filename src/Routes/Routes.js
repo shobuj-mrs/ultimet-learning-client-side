@@ -6,7 +6,9 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/LoginAndRegister/Login/Login";
 import Register from "../Pages/LoginAndRegister/Register/Register";
 import Course from "../Pages/Shared/Course/Course"
-import LeftSideNav from "../Pages/Shared/LeftSideNav/LeftSideNav";
+import DetailCourse from "../Pages/Shared/Course/DetailCourse/DetailCourse";
+import Faq from "../Pages/Shared/Faq/Faq";
+
 
 
 export const router = createBrowserRouter([
@@ -20,8 +22,10 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/allCourse',
-                loader: () => fetch('https://assignment-10-the-ultimate-learning-server-side.vercel.app/categories'),
+                path: '/course',
+                loader: () => {
+                    return fetch(`https://assignment-10-the-ultimate-learning-server-side.vercel.app/courses`)
+                },
                 element: <Course></Course>
             },
             {
@@ -36,6 +40,14 @@ export const router = createBrowserRouter([
                 path: '/blogs',
                 element: <Blogs></Blogs>
             },
+            {
+                path: '/faq',
+                element: <Faq></Faq>
+            },
+            {
+                path: '/courseDetails',
+                element: <DetailCourse></DetailCourse>
+            }
         ]
     }
 ])

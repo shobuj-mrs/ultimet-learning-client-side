@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const LeftSideNav = () => {
-    const [coursetitle, setCourseTile] = useState(null);
+    const [courseTitle, setCourseTile] = useState([]);
 
     useEffect(() => {
         fetch('https://assignment-10-the-ultimate-learning-server-side.vercel.app/categories')
@@ -11,7 +12,19 @@ const LeftSideNav = () => {
 
     return (
         <div>
-            <h3>Our Courses : {coursetitle.length}</h3>
+
+
+            <h3>Our Courses : {courseTitle.length}</h3>
+            {
+                courseTitle.map(trainingTitle => <div key={trainingTitle.id}>
+                    <h1>
+                        <Link to={`/trainingTitle/${trainingTitle.id}`}>
+                            {trainingTitle.name}
+                        </Link>
+                    </h1>
+                </div>)
+            }
+
         </div>
     );
 };
