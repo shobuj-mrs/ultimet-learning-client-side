@@ -16,11 +16,15 @@ const LeftSideNav = () => {
 
             <h3>Our Courses : {courseTitle.length}</h3>
             {
-                courseTitle.map(trainingTitle => <div key={trainingTitle.id}>
+                courseTitle.map(courses => <div key={courses.id}>
                     <h1>
-                        <Link to={`/trainingTitle/${trainingTitle.id}`}>
-                            {trainingTitle.name}
-                        </Link>
+                        <button 
+                        className='bg-pink-400 text-white hover:bg-pink-700 hover:font-semibold w-4/5 mx-auto mt-3 px-2 hover:px-3 hover:py-2 rounded-lg'
+                        >
+                            <Link to={`/courses/${courses.id}`}>
+                                {courses.name}
+                            </Link>
+                        </button>
                     </h1>
                 </div>)
             }

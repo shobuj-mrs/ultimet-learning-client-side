@@ -20,7 +20,7 @@ const Login = () => {
         loginProvider(googleProvider)
             .then(result => {
                 const user = result.user;
-                navigate(from);
+                navigate(from, { replace: true });
                 console.log(user);
             })
             .catch(error => console.error(error))
@@ -34,6 +34,7 @@ const Login = () => {
         githubLogin(githubProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from, { replace: true });
                 console.log(user);
             })
             .catch(error => {
@@ -57,7 +58,7 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('')
-                navigate(from, { replace: true })
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error)
