@@ -1,14 +1,15 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
-const CheckOut = () => {
+const CardDetails = () => {
     const info = useLoaderData();
     console.log(info);
     return (
         <div>
             this is checkout{info.name}
+            <Link to={'/checkout'}>Get Access Premium</Link>
         </div>
     );
 };
 
-export default CheckOut;
+export default CardDetails;

@@ -18,13 +18,14 @@ const CourseCard = ({ course }) => {
                 <div>
                     <img src={image_url} alt="" className="object-cover w-full mb-4 h-50 sm:h-80 dark:bg-gray-500" />
                     <h2 className="mb-1 text-xl font-semibold">{title}</h2>
+                    <h2 className="mb-1 text-xl font-semibold"> * Our course details</h2>
                     <p className="text-sm dark:text-gray-400">
                         {
-                            details.length > 200 ?
-                                <p> {details.slice(0, 200) + '...'} <button
+                            details.length > 100 ?
+                                <p> {details.slice(0, 100) + '...'} <button
                                 className='hover:bg-pink-600 px-2 py-1 rounded-lg'
 
-                                > <Link to={`/courses/${_id}`}>Read more</Link></button></p>
+                                > <Link to={`/courses/${_id}`}>Show more Details</Link></button></p>
                                 :
                                 <p>{details} </p>
                         }

@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blogs from "../Pages/Blog/Blogs";
-import CheckOut from "../Pages/CheackOut/CheckOut";
+import CardDetails from "../Pages/CardDetails/CardDetails";
+import CheckOut from "../Pages/CheckOut/CheckOut";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/LoginAndRegister/Login/Login";
@@ -29,7 +30,7 @@ export const router = createBrowserRouter([
                 loader: () => {
                     return fetch(`https://assignment-10-the-ultimate-learning-server-side.vercel.app/courses`)
                 },
-                element: <PrivetRoute><Course></Course></PrivetRoute>
+                element: <Course></Course>
             },
             {
                 path: '/login',
@@ -58,7 +59,11 @@ export const router = createBrowserRouter([
             {
                 path: '/courses/:id',
                 loader: ({ params }) => fetch(`https://assignment-10-the-ultimate-learning-server-side.vercel.app/courses/${params.id}`),
-                element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>
+                element: <CardDetails></CardDetails>
+            },
+            {
+                path: '/checkout',
+                element: <PrivetRoute> <CheckOut></CheckOut> </PrivetRoute>
             }
         ]
     }
