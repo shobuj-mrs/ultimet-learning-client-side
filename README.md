@@ -1,3 +1,63 @@
+
+
+# Firebase Hosting live link 
+
+[firebase link : ](https://learning-page-a-10.web.app/)
+https://learning-page-a-10.web.app/
+
+## API Reference
+* catagories API link :
+https://assignment-10-the-ultimate-learning-server-side.vercel.app/categories
+
+* Our Courses API Links : 
+https://assignment-10-the-ultimate-learning-server-side.vercel.app/courses
+
+
+
+## 🔗 Links
+* gitHub client side links : https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-shobuj-mrs
+
+* gitHub server side link : https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-shobuj-mrs
+## Deployment with firebase
+ Hosting frist to your firebase project and  follow the firebase directions
+To deploy this project run frist your project npm run build and after that projects firebase deploy
+
+```git bash & terminal & command line
+  npm run build
+```
+
+``` next command 
+firebase deploy
+```
+
+
+
+# The Sports Traning center
+
+* To carry out the national sport policy, assist all Sports Federation to execute the overall guidance, selection, training and development of elite athletes, which aims to upgrade their strength and performance in international campaigns.
+
+##  Sports Science and Research Department
+* Committed to test, study and analyze the effects of athletes before, during and after exercises on the strength of intelligent Sport Technology, and to provide elite athletes with practical training programs to improve performance and achievements.
+
+## Athlete Education and Training Department
+
+* To arrange academic courses or programs for student-athletes, and help with the elites athletes to achieve a balance between training and education. To offer career counseling service and develop athletes’ with multiple courses to maximize their job opportunities.
+## Acknowledgements
+
+ - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Awesome README](https://github.com/matiassingers/awesome-readme)
+ - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+
+
+## Author
+
+- [MR Sobuz](https://www.github.com/octokatherine)
+
+## 
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
