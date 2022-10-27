@@ -22,10 +22,10 @@ const CourseCard = ({ course }) => {
                     <p className="text-sm dark:text-gray-400">
                         {
                             details.length > 100 ?
-                                <p> {details.slice(0, 100) + '...'} <button
-                                className='hover:bg-pink-600 px-2 py-1 rounded-lg'
+                                <> {details.slice(0, 100) + '...'} <button
+                                className='bg-indigo-500 hover:bg-pink-600 px-2 py-1 rounded-lg'
 
-                                > <Link to={`/courses/${_id}`}>Show more Details</Link></button></p>
+                                > <Link to={`/courses/${_id}`}>Show more Details</Link></button></>
                                 :
                                 <p>{details} </p>
                         }

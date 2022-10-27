@@ -38,7 +38,7 @@ const Login = () => {
                 console.log(user);
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
             })
     }
 
@@ -57,12 +57,12 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                setError('')
+                setError('');
                 navigate(from, { replace: true });
             })
             .catch(error => {
-                console.error(error)
-                setError(error.message)
+                console.error(error);
+                setError(error.message);
             })
     }
 
@@ -106,7 +106,7 @@ const Login = () => {
                         />
                     </div>
 
-                    <p>{error} </p>
+                    <p className='text-red-600'> {error} </p>
 
                     <Link
                         href="#"

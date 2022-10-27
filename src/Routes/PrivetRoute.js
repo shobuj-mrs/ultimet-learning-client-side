@@ -9,7 +9,7 @@ const PrivetRoute = ({ children }) => {
 
     if (loading) {
         return (
-            <div className='flex justify-center items-center'>
+            <div className='flex justify-center p-3 items-center'>
                 <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-blue-600"></div>
             </div>
         )

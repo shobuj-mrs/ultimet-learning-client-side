@@ -52,13 +52,13 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                setError('')
-                handleUpdateUserProfile(name,);
+                setError('');
+                handleUpdateUserProfile(name, photoURL);
                 // navigate('/')
             })
             .catch(error => {
                 console.error(error);
-                setError(error.message)
+                setError(error.message);
             })
     }
 
@@ -166,7 +166,7 @@ const Register = () => {
                                     required
                                 />
                             </div>
-                            <p>{error}</p>
+                            <p className='text-red-600'>{error}</p>
                         </div>
                         <Link
                             href="#"
