@@ -62,8 +62,9 @@ export const router = createBrowserRouter([
                 element: <CardDetails></CardDetails>
             },
             {
-                path: '/checkout',
-                element: <PrivetRoute> <CheckOut></CheckOut> </PrivetRoute>
+                path: '/checkout/:id',
+                loader: ({ params }) => fetch(`https://assignment-10-the-ultimate-learning-server-side.vercel.app/courses/${params.id}`),
+                element: <PrivetRoute> <CheckOut></CheckOut> </PrivetRoute>,
             }
         ]
     }

@@ -9,7 +9,8 @@ const CardDetails = () => {
 
     const cardInfo = useLoaderData();
     console.log(cardInfo);
-    const { details, title, image_url, total_view, trainer, rating } = cardInfo;
+    const { details, category_id
+        , title, image_url, total_view, trainer, rating } = cardInfo;
     return (
 
         <div>
@@ -53,7 +54,8 @@ const CardDetails = () => {
                                 <span className='ml-2'>{total_view}</span>
                             </p>
 
-                            <button className='bg-purple-500 hover:bg-pink-500 text-white text-xl font-semibold px-3 py-2 rounded-lg'> <Link to={'/checkout'}>Get Access Premium</Link></button>
+                            <button className='bg-purple-500 hover:bg-pink-500 text-white text-xl font-semibold px-3 py-2 rounded-lg'> <Link to={`/checkout/${category_id
+                                }`}>Get Access Premium</Link></button>
 
                         </div>
                     </div>
