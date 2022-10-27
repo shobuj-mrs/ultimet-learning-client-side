@@ -71,19 +71,19 @@ const Home = () => {
                     <div className="flex items-center justify-center -mx-4 lg:pl-8">
                         <div className="flex flex-col items-end px-3">
                             <img
-                                className="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-full sm:w-48 xl:w-56"
+                                className="object-cover hover:px-4 hover:py-2 hover:rounded-lg mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-full sm:w-48 xl:w-56"
                                 src="https://www.taylordailypress.net/wp-content/uploads/2021/09/Football-discussion-Lommel-defeats-Lierse-Belgian-Wolfsburg-draw-with.7.jpeg"
                                 alt=""
                             />
                             <img
-                                className="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40"
+                                className="object-cover w-20 h-20 hover:px-4 hover:py-2 hover:rounded-lg rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopO2mbN2yRMV6uJrf45EVZCqTvVh5yoam-g&usqp=CAU"
                                 alt=""
                             />
                         </div>
                         <div className="px-3">
                             <img
-                                className="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
+                                className="object-cover hover:px-4 hover:py-2 hover:rounded-lg w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnKcP12nMam8blD8MTZPTJ-aHHfr-DIbFsCA&usqp=CAU"
                                 alt=""
                             />

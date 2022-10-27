@@ -23,7 +23,7 @@ const CourseCard = ({ course }) => {
                         {
                             details.length > 100 ?
                                 <> {details.slice(0, 100) + '...'} <button
-                                className='bg-indigo-500 hover:bg-pink-600 px-2 py-1 rounded-lg'
+                                className='bg-orange-500 text-white font-semibold hover:bg-pink-600 px-2 py-1 rounded-lg'
 
                                 > <Link to={`/courses/${_id}`}>Show more Details</Link></button></>
                                 :
